@@ -1,50 +1,22 @@
 # React + TypeScript + Vite
+Este es un proyecto utilizando la libreria bun https://bun.sh/ para crear proyecto de react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un seguimiento a midu video: https://www.youtube.com/watch?v=B9tDYAZZxcE&t
 
-Currently, two official plugins are available:
+Github proyecto midu: https://github.com/midudev/aprendiendo-react/tree/master/projects/06-shopping-cart
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Descripcion de funcionalidad de proyecto
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# NOTAS IMPORTANTES
+//useId genera un identificador unico
+import { useState, useId } from "react";
 
-- Configure the top-level `parserOptions` property like this:
+const categoryFilterId = useId()
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+--------
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+useContext
+Es un gancho de React que permite compartir datos entre componentes sin tener que pasarlos explícitamente a través de props.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+En pocas palabras es inyectar independencias o compartir informacion para ciertos componentes para que puedan extrader información de allí.

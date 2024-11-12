@@ -1,20 +1,22 @@
-import { useState } from "react";
-import {  } from "./Filters.css";
+import { useId } from "react";
+import "./Filters.css";
+import { useFilters } from "../hooks/useFilters";
 
-export function Filters ( { changeFilters }: any ){
+export function Filters (){
 
-    const [minPrice, setMinPrice] = useState(0)
+    const { filters, setFilters } = useFilters()
+    const minPriceFilterId = useId()
+    const categoryFilterId = useId()
 
     const handleChangeMinPrice = (event:any) => {
-        setMinPrice(event.target.value)
-        changeFilters((prevState: any) => ({
+        setFilters((prevState: any) => ({
             ...prevState,
             minPrice: event.target.value
         }))
     }
 
     const handleChangeCategory = (event:any) => {
-        changeFilters((prevState: any) => ({
+        setFilters((prevState: any) => ({
             ...prevState,
             category: event.target.value
         }))
@@ -23,20 +25,21 @@ export function Filters ( { changeFilters }: any ){
     return (
         <section className="filters">
             <div>
-                <label htmlFor="price">Precio a partir de:</label>
+                <label htmlFor={minPriceFilterId}>Precio a partir de:</label>
                 <input 
                     type="range" 
-                    id="price" 
+                    id={minPriceFilterId} 
                     min="0" 
                     max="1000"
                     onChange={handleChangeMinPrice}
+                    value={filters.minPrice}
                 />
-                <span>{minPrice}</span>
+                <span>{filters.minPrice}</span>
             </div>
 
             <div>
-                <label htmlFor="category">Categoria</label>
-                <select id="category" onChange={handleChangeCategory}>
+                <label htmlFor={categoryFilterId}>Categoria</label>
+                <select id={categoryFilterId} onChange={handleChangeCategory} value={filters.category}>
                     <option value="all">Todas</option>
                     <option value="groceries">comestibles</option>
                     <option value="fragrances">Fragancias</option>

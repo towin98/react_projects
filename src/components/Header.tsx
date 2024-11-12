@@ -1,10 +1,10 @@
 import { Filters } from "./Filters.tsx";
 
-export function Header({ changeFilters } :any){
+export function Header(){
     return (
         <header>
             <h1>React Shop</h1>
-            <Filters changeFilters = {changeFilters}/>
+            <Filters/>
         </header> 
     )
 }

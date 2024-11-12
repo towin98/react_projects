@@ -43,8 +43,3 @@ export interface MetaData {
     barcode: string;
     qrCode: string;
 }
-
-// Define las props para el componente Products
-export interface ProductsProps {
-    products: Product[];
-}
