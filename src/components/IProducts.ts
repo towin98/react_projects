@@ -21,6 +21,9 @@ export interface Product {
     meta?: MetaData; // Hacer opcional
     images: string[];
     thumbnail: string;
+
+    // new
+    quantity?: number | undefined;
 }
 
 export interface Dimensions {
